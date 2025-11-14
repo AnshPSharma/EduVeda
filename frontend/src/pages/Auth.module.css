@@ -1,0 +1,400 @@
+/* Auth.module.css - Scoped styles for Login/Signup authentication pages */
+
+/* Root container - replaces the global body styles */
+.authBody {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(90deg, #e2e2e2, #c9d6ff);
+  padding: 20px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Reset only within auth components */
+.authBody * {
+  box-sizing: border-box;
+}
+
+.authContainer {
+  position: relative;
+  width: 850px;
+  height: 550px;
+  background: #fff;
+  border-radius: 30px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.formBox {
+  position: absolute;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  color: #333;
+  text-align: center;
+  padding: 40px;
+  z-index: 1;
+  transition: 0.6s ease-in-out 1.2s, visibility 0s 1s;
+}
+
+.authContainer.active .formBox {
+  right: 50%;
+}
+
+.formBox.register {
+  visibility: hidden;
+}
+
+.authContainer.active .formBox.register {
+  visibility: visible;
+}
+
+.formBox form {
+  width: 100%;
+}
+
+.authContainer h1 {
+  font-size: 36px;
+  margin: 10px 0;
+}
+
+.inputBox {
+  position: relative;
+  margin: 30px 0;
+}
+
+.inputBox input,
+.inputBox select {
+  width: 100%;
+  padding: 13px 50px 13px 20px;
+  background: #eee;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #333;
+  font-weight: 500;
+}
+
+.inputBox input::placeholder {
+  color: #888;
+  font-weight: 400;
+}
+
+.inputBox select.roleSelect {
+  appearance: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.inputBox i {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #333;
+}
+
+.forgotLink {
+  margin: -15px 0 15px;
+  text-align: right;
+}
+
+.forgotLink a {
+  font-size: 14.5px;
+  color: #7494ec;
+  text-decoration: none;
+}
+
+.forgotLink a:hover {
+  text-decoration: underline;
+}
+
+.authBtn {
+  width: 100%;
+  height: 48px;
+  background-color: #7494ec;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.authBtn:hover {
+  background-color: #5c7ed8;
+}
+
+.authContainer p {
+  font-size: 14.5px;
+  margin: 15px 0;
+  color: #666;
+}
+
+.socialIcons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.socialIcons a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 24px;
+  color: #333;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.socialIcons a:hover {
+  border-color: #7494ec;
+  color: #7494ec;
+  transform: translateY(-3px);
+}
+
+.toggleBox {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.toggleBox::before {
+  content: "";
+  position: absolute;
+  left: -250%;
+  width: 300%;
+  height: 100%;
+  background: linear-gradient(135deg, #7494ec, #5c7ed8);
+  border-radius: 150px;
+  z-index: 2;
+  transition: 1.8s ease-in-out;
+}
+
+.authContainer.active .toggleBox::before {
+  left: 50%;
+}
+
+.togglePanel {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  transition: 0.6s ease-in-out;
+}
+
+.togglePanel h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.togglePanel.toggleLeft {
+  left: 0;
+  transition-delay: 1.2s;
+}
+
+.authContainer.active .togglePanel.toggleLeft {
+  left: -50%;
+  transition-delay: 0.6s;
+}
+
+.togglePanel.toggleRight {
+  right: -50%;
+  transition-delay: 0.6s;
+}
+
+.authContainer.active .togglePanel.toggleRight {
+  right: 0;
+  transition-delay: 1.2s;
+}
+
+.togglePanel p {
+  margin-bottom: 20px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.togglePanel .authBtn {
+  width: 160px;
+  height: 46px;
+  background: transparent;
+  border: 2px solid #fff;
+  box-shadow: none;
+}
+
+.togglePanel .authBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Role Selection Styles */
+.roleSelection {
+  margin: 25px 0;
+  width: 100%;
+}
+
+.roleLabel {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.radioGroup {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.radioOption {
+  flex: 1;
+  cursor: pointer;
+  position: relative;
+}
+
+.radioOption input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.radioText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  background: #f9f9f9;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+}
+
+.radioText i {
+  font-size: 18px;
+}
+
+.radioOption input[type="radio"]:checked + .radioText {
+  border-color: #162938;
+  background: linear-gradient(135deg, #162938, #2a3f56);
+  color: white;
+  box-shadow: 0 4px 12px rgba(22, 41, 56, 0.3);
+}
+
+.radioOption:hover .radioText {
+  border-color: #162938;
+  background: #f0f0f0;
+}
+
+.radioOption input[type="radio"]:checked + .radioText:hover {
+  background: linear-gradient(135deg, #162938, #2a3f56);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 900px) {
+  .authContainer {
+    width: 90%;
+    max-width: 650px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .authContainer {
+    height: calc(100vh - 40px);
+  }
+
+  .formBox {
+    bottom: 0;
+    width: 100%;
+    height: 70%;
+    right: 0;
+  }
+
+  .authContainer.active .formBox {
+    right: 0;
+    bottom: 30%;
+  }
+
+  .toggleBox::before {
+    left: 0;
+    top: -270%;
+    width: 100%;
+    height: 300%;
+  }
+
+  .authContainer.active .toggleBox::before {
+    left: 0;
+    top: 70%;
+  }
+
+  .togglePanel {
+    width: 100%;
+    height: 30%;
+  }
+
+  .togglePanel.toggleLeft {
+    top: 0;
+    left: 0;
+  }
+
+  .authContainer.active .togglePanel.toggleLeft {
+    left: 0;
+    top: -30%;
+  }
+
+  .togglePanel.toggleRight {
+    right: 0;
+    bottom: -30%;
+  }
+
+  .authContainer.active .togglePanel.toggleRight {
+    bottom: 0;
+    right: 0;
+  }
+
+  .inputBox {
+    margin: 20px 0;
+  }
+
+  .authContainer h1 {
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .formBox {
+    padding: 20px;
+  }
+
+  .togglePanel h1 {
+    font-size: 26px;
+  }
+
+  .authContainer h1 {
+    font-size: 24px;
+  }
+
+  .inputBox {
+    margin: 15px 0;
+  }
+}
